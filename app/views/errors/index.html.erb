@@ -1,0 +1,21 @@
+<h2>Error Listing</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Exception</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @errors.each do |error| -%>
+      <tr>
+        <td><%= error.generated_at.strftime("%-m/%-d/%Y") %></td>
+        <td><%= error.generated_at.strftime("%-H:%M:%S") %></td>
+        <td><%= link_to error.exception_class, error %></td>
+        <td><%= error.message %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
